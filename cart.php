@@ -17,8 +17,8 @@ if (!isset($_SESSION['user_id'])) {
     $total = 0;
     $itemCount = 0;
 }
-
  ?>
+ <!-- cart page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

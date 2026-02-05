@@ -33,7 +33,7 @@ include "config/db.php";
 </h3>
 
     </div>
-
+<!-- Sidebar Menu Items -->
     <ul>
     <li class="menu-header">Digital Content & Devices</li>
     <ul class="sub-items">

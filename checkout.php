@@ -42,7 +42,7 @@ $items = $stmt->get_result();
 $total = 0;
 $itemCount = 0;
 ?>
-
+<!-- This is the checkout page where users can review their cart items, select payment method, and place their order. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
