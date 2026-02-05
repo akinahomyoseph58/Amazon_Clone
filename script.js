@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     imgs[n].style.display = 'block';
 }
 
-
+// Initialize slider if images and buttons exist
     if (imgs.length && prev_btn && next_btn) {
         changeSlide();
 
