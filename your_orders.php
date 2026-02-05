@@ -17,6 +17,7 @@ $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $orders = $stmt->get_result();
 ?>
+<!-- This is the Your Orders page where users can view their past orders, return items, and buy again. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
