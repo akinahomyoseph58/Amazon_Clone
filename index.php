@@ -7,7 +7,7 @@ include "config/db.php";
 ?>
 
 
-
+<!-- This is the main landing page for the Amazon clone. It includes the header, product listings, and footer. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
