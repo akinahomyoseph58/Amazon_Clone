@@ -18,14 +18,70 @@ include "config/db.php";
     <link rel="icon" href="amazon-icon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="language-menu.css">
+
 </head>
 <body>
+<!-- Sidebar Overlay -->
+<div id="sidebar-overlay"></div>
+
+<!-- Sidebar -->
+<div id="sidebar">
+    <div class="sidebar-header">
+        <span id="close-sidebar">&times;</span>
+
+        <h3>
+    <a href="<?php echo isset($_SESSION['user_name']) ? '#' : 'signin.php'; ?>" class="sidebar-user">
+        Hello,
+        <?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'sign in'; ?>
+    </a>
+</h3>
+
+    </div>
+
+    <ul>
+    <li class="menu-header">Digital Content & Devices</li>
+    <ul class="sub-items">
+        <li>Prime Video</li>
+        <li>Amazon Music</li>
+        <li>Kindle E-readers & Books</li>
+        <li>Amazon Appstore</li>
+    </ul>
+    <hr>
+
+    <li class="menu-header">Shop by Department</li>
+    <ul class="sub-items">
+        <li>Electronics</li>
+        <li>Computers</li>
+        <li>Smart Home</li>
+        <li>Arts & Crafts</li>
+    </ul>
+    <hr>
+    <li class="menu-header">Programs & Features</li>
+    <ul class="sub-items">
+        <li>Gift Cards</li>
+        <li>Shop By Interest</li>
+        <li>Amazon Live</li>
+        <li>International Shopping</li>
+    </ul>
+    <hr>
+    <li class="menu-header">Help & Settings</li>
+    <ul class="sub-items">
+        <li>Your Account</li>   
+        <li><img src="assets/globe.png" height="12" alt=""> &nbsp; English</li>
+        <li><img src="assets/us_flag.png"  height="12" width="12px" alt=""> &nbsp;United States</li>
+        <li>Customer Service</li>
+    </ul>
+</ul>
+</div>
+    
+
     <nav> 
         <a href="index.php">
         <img src="./assets/amazon_logo.png" width="100 " alt="Amazon Logo">
         </a>
         <div class="nav-country">
-            <img src="./assets/location_icon .png" height="20" alt="">
+            <img src="./assets/location_icon.png" height="20" alt="">
             <div>
                 <p>Deliver to</p>
                 <h1>Ethiopia</h1>
@@ -39,11 +95,12 @@ include "config/db.php";
             <input type="text" class="nav-search-input" placeholder="Search Amazon">
             <img src="./assets/search_icon.png" class="nav-search-icon" alt="">
         </div>
-        <div class="nav-language">
-            <img src="./assets/us_flag.png" width="25px" alt="">
-            <p>EN</p>
-            <img src="./assets/dropdown_icon.png" width="8px" alt="">
-        </div>
+       <div class="nav-language" id="langToggle">
+    <img src="./assets/us_flag.png" width="25px" alt="">
+    <p><?= $_SESSION['lang'] ?? 'EN' ?></p>
+    <img src="./assets/dropdown_icon.png" width="8px" alt="">
+</div>
+
        <div class="nav-text">
     <?php if(isset($_SESSION['user_id'])): ?>
          <!-- User is logged in -->
@@ -61,24 +118,59 @@ include "config/db.php";
 </div>
 
 
-        <div class="nav-text">
-           <p>Return</p>
-           <h1>& Orders</h1> 
-        </div>
+       <a href="your_orders.php" class="nav-text">
+   <p>Return</p>
+   <h1>& Orders</h1>
+</a>
+
        <a href="/signin.php" class="mobile-user-icon" style="display: none;">
             <img src="assets/user.png" alt="">
         </a>
-        <a href="cart.html" class="nav-cart">
+        <a href="cart.php" class="nav-cart">
             <img src="./assets/cart_icon.png" width="35" alt="">
             <h4>Cart</h4>
         </a>
         
     </nav>
+<div class="language-menu" id="languageMenu">
+    <h4>Change language</h4>
+
+    <form action="set_language.php" method="post">
+        <label>
+            <input type="radio" name="lang" value="EN" checked>
+            English - EN
+        </label>
+
+        <label>
+            <input type="radio" name="lang" value="ES">
+            español - ES
+        </label>
+
+        <label>
+            <input type="radio" name="lang" value="AR">
+            العربية - AR
+        </label>
+
+        <label>
+            <input type="radio" name="lang" value="DE">
+            Deutsch - DE
+        </label>
+
+        <hr>
+
+        <p class="currency">
+            Change currency<br>
+            <strong>$ USD - U.S. Dollar</strong>
+        </p>
+
+        <button type="submit">Save</button>
+    </form>
+</div>
 
     <div class="nav-bottom">
         <div>
             <img src="./assets/menu_icon.png" width="25px" alt="">
-            <p>All</p>
+            <p class="nav-all" id="all-btn">All</p>
         </div>
         <p>Today's Deals</p>
         <p>Customer Service</p>
@@ -305,7 +397,7 @@ include "config/db.php";
 <div class="products-slider">
     <h2>Best Sellers in Sports & Outdoors</h2>
     <div class="products">
-        <a href="product.html">
+        <a href="product.php">
             <img src="./assets/product_img.jpg" alt="">
         </a>
         <img src="./assets/product1-1.jpg" alt="">
@@ -418,12 +510,13 @@ include "config/db.php";
     </div>
 <script src="script.js"></script>
 
-// Scroll to top button functionality
+
 <script>
 document.querySelector('.back').onclick = () => {
     window.scrollTo({top:0, behavior:"smooth"});
 }
 </script>
+<script src="language-menu.js"></script>
 
 </body>
 </html> 

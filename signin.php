@@ -50,8 +50,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <?php if(!empty($error)) { echo "<p style='color:red;'>$error</p>"; } ?>
 
+<?php if (isset($_GET['error'])): ?>
+    <?php if ($_GET['error'] === 'email'): ?>
+        <p style="color:red;">Email not registered</p>
+    <?php elseif ($_GET['error'] === 'password'): ?>
+        <p style="color:red;">Incorrect password</p>
+    <?php endif; ?>
+<?php endif; ?>
+
     <!-- Form starts here -->
-    <form method="POST" action="">
+    <form method="POST" action="process_login.php">
+        <input type="hidden" name="redirect" value="<?= $_GET['redirect'] ?? 'index.php' ?>">
         <h5 class="input-label">Email </h5>
         <input type="text" name="email" placeholder="Enter your email">
 
@@ -59,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" name="password" placeholder="Enter your password">
 
         <button type="submit">Continue</button>
+
     </form>
     <!-- Form ends here -->
 

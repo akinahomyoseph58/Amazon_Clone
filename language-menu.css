@@ -1,0 +1,44 @@
+.language-menu {
+    position: absolute;
+    top: 60px;
+    right: 120px;
+    width: 260px;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 15px;
+    font-size: 14px;
+    display: none;
+    z-index: 2000;
+}
+
+.language-menu h4 {
+    margin: 0 0 10px;
+    font-size: 15px;
+}
+
+.language-menu label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.language-menu hr {
+    margin: 10px 0;
+}
+
+.language-menu .currency {
+    font-size: 13px;
+    color: #555;
+}
+
+.language-menu button {
+    margin-top: 10px;
+    width: 100%;
+    background: #ffd814;
+    border: 1px solid #fcd200;
+    padding: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+}
