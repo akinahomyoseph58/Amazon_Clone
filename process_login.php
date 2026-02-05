@@ -36,4 +36,4 @@ $_SESSION['user_id'] = $user['id'];      // change if column name differs
 $_SESSION['user_name'] = $user['name'];  // change if column name differs
 
 header("Location: $redirect");
-exit;
+exit; // ensure no further code is executed after redirection
