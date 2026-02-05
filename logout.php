@@ -3,5 +3,5 @@ session_start(); // start session
 session_unset(); // remove all session variables
 session_destroy(); // destroy the session
 header("Location: signin.php"); // redirect to signin page
-exit();
+exit(); // ensure no further code is executed after redirection
 ?>
