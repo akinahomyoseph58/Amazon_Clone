@@ -21,5 +21,5 @@ if ($conn->connect_error) {
 }
 
 // If no error occurs, the database connection is successful
-?>
+?> <!--Database connection established successfully-->
 
