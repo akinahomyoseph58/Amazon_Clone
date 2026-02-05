@@ -1,6 +1,6 @@
 <?php
 include "config/db.php";
-
+// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST["name"]);
     $email = trim($_POST["email"]);

@@ -6,7 +6,7 @@ if (isset($_GET['signup']) && $_GET['signup'] == 'success') {
     echo "<script>alert('Signup successful! Please log in.');</script>";
 }
 
-
+// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
